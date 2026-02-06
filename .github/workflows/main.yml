@@ -1,19 +1,18 @@
-ame: Ujian Automatik Sistem Kehadiran
+name: CI_Pipeline_IPA4063
 
 on: [push]
 
 jobs:
-  test:
+  code_verification:
     runs-on: ubuntu-latest
-
     steps:
-    - name: Checkout repository
-      uses: actions/checkout@v3
+      - name: Checkout Repository
+        uses: actions/checkout@v3
 
-    - name: Setup Python
-      uses: actions/setup-python@v4
-      with:
-        python-version: '3.x'
+      - name: Set Up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.8'
 
-    - name: Jalankan script Python
-      run: python script.py
+      - name: Run Unit Tests
+        run: python script.py
